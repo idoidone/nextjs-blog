@@ -1,7 +1,5 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from './layout.module.css'
-import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
 
 const name = 'Nhan D Le'
@@ -9,7 +7,7 @@ export const siteTitle = 'I do, I done • Nhan D Le'
 
 export default function Layout({ children, home }) {
   return (
-    <div className={styles.container}>
+    <div className="grid max-w-md mx-auto">
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
@@ -26,30 +24,30 @@ export default function Layout({ children, home }) {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       
-      <header className={styles.header}>
+      <header className="flex flex-col items-center">
         <>
           <Link href="/">
             <a>
               <Image
                 priority
                 src="/images/profile.png"
-                className={utilStyles.borderCircle}
-                height={52}
-                width={52}
+                className="rounded-full"
+                height={80}
+                width={80}
                 alt={name}
               />
             </a>
           </Link>
           <Link href="/">
             <a>
-              <h1 className={utilStyles.heading2Xl}>{name}</h1>
+              <h1 className="text-xl uppercase mt-0 tracking-widest text-gray-600">{name}</h1>
             </a>
           </Link>
         </>
       </header>
       <main>{children}</main>
       {!home && (
-        <div className={styles.backToHome}>
+        <div>
           <Link href="/">
             <a>← Back to home</a>
           </Link>
