@@ -7,7 +7,7 @@ export const siteTitle = 'I do, I done • Nhan D Le'
 
 export default function Layout({ children, home }) {
   return (
-    <div className="grid max-w-md mx-auto">
+    <div className="max-w-md mx-auto p-4">
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
@@ -24,7 +24,7 @@ export default function Layout({ children, home }) {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       
-      <header className="flex flex-col items-center">
+      <header className="flex flex-col items-center my-8">
         <>
           <Link href="/">
             <a>
@@ -45,7 +45,9 @@ export default function Layout({ children, home }) {
           </Link>
         </>
       </header>
+      
       <main>{children}</main>
+      
       {!home && (
         <div>
           <Link href="/">

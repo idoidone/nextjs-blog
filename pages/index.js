@@ -3,6 +3,12 @@ import Layout, { siteTitle } from '../components/layout'
 import { getSortedPostsData } from '../lib/posts'
 import Link from 'next/link'
 import Date from '../components/date'
+import dynamic from "next/dynamic"
+
+const EditorJs = dynamic(() => import("react-editor-js"), {
+  ssr: false,
+  loading: () => <p>loading editor.js ...</p>,
+});
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData()
@@ -35,6 +41,8 @@ export default function Home({ allPostsData }) {
           ))}
         </ul>
       </section>
+
+      <EditorJs />;
     </Layout>
   )
 }
